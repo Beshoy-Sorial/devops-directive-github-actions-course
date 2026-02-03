@@ -1,0 +1,44 @@
+name: shoy-testing-stuff
+
+
+env:cho
+  THIS_VAR: HI
+
+on:
+  push:
+    branches:
+      - "main"
+      - "feuture"
+  workflow_dispatch:
+    inputs:
+      environment:
+        ENV_INPUT: 
+          default: "shoy"
+          required: 
+          options:
+            - shoy
+            - boy
+            - toy
+
+jobs:
+  first-job:
+    runs-on: ubuntu-20.04
+    outputs:
+      foo: ${{ steps.first-id.outputs.foo }}
+    steps:
+      - id: "first-id"
+      - run: |
+        echo hello
+        foo=bar
+        echo "foo=$foo" >> "$GITHUB_OUTPUT"
+
+  second=job:
+    strategy:
+      matrix: 
+        num: [1, 2]
+    needs:
+      first-job
+    steps:
+      run: |
+        echo "${{ needs.first-job.output.foo }}"
+        echo "${{ matrix.num }}"
