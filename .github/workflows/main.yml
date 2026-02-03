@@ -1,0 +1,10 @@
+name: shoy-first-workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  shoy-doing-his-job:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo "Hello World"
