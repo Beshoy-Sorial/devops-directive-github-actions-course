@@ -1,7 +1,7 @@
 name: shoy-testing-stuff
 
 
-env:cho
+env:
   THIS_VAR: HI
 
 on:
