@@ -34,7 +34,7 @@ jobs:
           echo "foo=$foo" >> "$GITHUB_OUTPUT"
 
   second-job:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs: first-job
     strategy:
       matrix:
